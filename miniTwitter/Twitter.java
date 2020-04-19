@@ -79,8 +79,10 @@ class Twitter
             int key = (int)mapElement.getKey(); 
             int value = (int)mapElement.getValue(); 
             if(key==followerId && value == followeeId)
-                followList.remove(followerId);
-                break;
+            {    followList.remove(followerId);
+                 System.out.println(key +"unfollows "+ value);
+                 break;
+            }
         } 
     }
     public static void main(String s[])
