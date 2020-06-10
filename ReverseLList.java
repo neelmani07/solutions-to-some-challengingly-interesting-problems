@@ -18,7 +18,7 @@ Output: 5->4->3->2->1->NULL
  * }
  */
 class Solution 
-{
+{   //iterative 
     public ListNode reverseList(ListNode head)
     {
         ListNode cur=head,prev=null,next=null;
@@ -32,5 +32,26 @@ class Solution
         }
         
         return prev;
+    }
+    //recursive
+     ListNode ansHead=null;
+    public ListNode reverseList(ListNode head)
+    {
+        if(head==null)
+            return null;
+         helper(head);
+         return ansHead;
+    }
+    public ListNode helper(ListNode head)
+    {
+         if(head.next==null)
+         {
+             ansHead=head;
+             return head;
+         }
+         ListNode next=helper(head.next);
+         head.next=next.next;
+         next.next=head;
+         return head;
     }
 }
